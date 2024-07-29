@@ -1,0 +1,62 @@
+<%- include('../layouts/user-header') %>
+
+
+
+
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="/public/images/product-img/<%=product.image%>" width="100%" id="MainImg" alt="">
+        </div>
+
+        <div class="single-pro-details">
+            <h6>Home/Book</h6>
+            <h4>
+                <%= product.title%>
+            </h4>
+            <h2>Rs <%= product.price%>
+            </h2>
+            <!-- <input type="number" value="1">
+             -->
+
+            <div class="cart mt-4 align-items-center">
+                <button onclick="addToCart('<%=product._id%>')" class="btn normal text-uppercase mr-2">
+                    Add to cart
+                </button>
+                <button onclick="addToWishlist('<%=product._id%>')" class="btn normal">
+                    <i class="fa fa-heart text-light"></i>
+                </button>
+            </div>
+
+            <h4>Product Details</h4>
+            <p style="margin: 0;">Author</p>
+            <span>
+                <%= product.author%>
+            </span>
+
+            <p style="margin: 0;">Category</p>
+            <span>
+                <%= product.category%>
+            </span>
+
+            <p style="margin: 0;">Publish Date</p>
+            <span>
+                <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric' , month: 'long' , day: '2-digit'
+                    }).format(product.publishDate) %>
+            </span>
+
+            <p style="margin: 0;">Page Count</p>
+            <span>
+                <%= product.pageCount%>
+            </span>
+
+
+            <p style="margin: 0;">Description</p>
+            <span>
+                <%= product.description%>
+            </span>
+        </div>
+    </section>
+
+
+
+    <%- include('../layouts/user-footer.ejs') %>

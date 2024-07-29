@@ -1,0 +1,58 @@
+<%- include('../layouts/user-header') %>
+
+
+
+    <section class="products ">
+        <h1 class="title"> featured products </h1>
+        <div class="border border-dark">
+            <div class="category p-4">
+                <a href="/products">All products</a>
+            </div>
+            <%categories.forEach(function(cat){%>
+                <div class="category p-4">
+                    <a href="/products/<%= cat.slug %>">
+                        <%= cat.title %>
+                    </a>
+                </div>
+                <% }) %>
+        </div>
+
+        <section id="product1" class="section-p1">
+            <h2>All Books</h2>
+            <!-- <p>All Books</p> -->
+            <div class="pro-container">
+                <% products.forEach(function(pro){ %>
+
+                    <div class="pro" onclick="window.location.href='/products/product-details/<%= pro._id %>'">
+                        <img src="/public/images/product-img/<%=pro.image%>" alt="">
+                        <div class="des">
+                            <h5>
+                                <%= pro.title %>
+                            </h5>
+                            <span>
+                                By <%= pro.author %>
+                            </span>
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>Rs <%= pro.price%>
+                            </h4>
+                        </div>
+                        <a href="/products/product-details/<%= pro._id %>"><i class="fal fa-shopping-cart cart"></i></a>
+                    </div>
+
+                    <%})%>
+        </section>
+        </div>
+
+    </section>
+
+
+
+    <%- include('../layouts/user-footer-section.ejs') %>
+
+        <%- include('../layouts/user-footer.ejs') %>

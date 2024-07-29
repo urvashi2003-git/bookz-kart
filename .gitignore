@@ -1,0 +1,7 @@
+/node_modules
+
+
+/public/banner_img/*
+/public/category_img/*
+/public/product_img/*
+/public/user_img/*

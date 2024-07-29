@@ -1,0 +1,107 @@
+<%- include('../layouts/user-header') %>
+
+
+
+
+    <!-- home section starts      -->
+
+    <section id="hero">
+        <h4>Trade-in-fair</h4>
+        <h2>Super value deals</h2>
+        <h1>On all Products</h1>
+        
+        <button><b>Shop Now</b></button>
+
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="https://i.postimg.cc/PrN2Y6Cv/f1.png" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="https://i.postimg.cc/qvycxW4q/f2.png" alt="">
+            <h6>Online Order</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="https://i.postimg.cc/1Rdphyz4/f3.png" alt="">
+            <h6>Save Money</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="https://i.postimg.cc/GpYc2JFZ/f4.png" alt="">
+            <h6>Promotions</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="https://i.postimg.cc/4yFCwmv6/f5.png" alt="">
+            <h6>Happy Sell</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="https://i.postimg.cc/gJN1knTC/f6.png" alt="">
+            <h6>F24/7 Support</h6>
+        </div>
+
+    </section>
+
+
+    <section id="product1" class="section-p1">
+        <h2>Categories</h2>
+        <div class="pro-container">
+            <% categories.forEach(function(cat){ %>
+
+                <div class="pro">
+                    <img src="/public//images/category-img/<%=cat.image%>" alt="">
+                    <div class="des">
+                        <h5 style="text-align: center;">
+                            <%=cat.title%>
+                        </h5>
+                    </div>
+                    <a href="products/<%=cat.title%>" class="btn"><i class="fa fa-arrow"></i>shop now</a>
+                </div>
+
+                <%})%>
+    </section>
+
+
+    <section id="product1" class="section-p1">
+        <h2>All Books</h2>
+        <!-- <p>All Books</p> -->
+        <div class="pro-container">
+            <% products.forEach(function(pro){ %>
+
+                <div class="pro" onclick="window.location.href='/products/product-details/<%= pro._id %>'">
+                    <img src="/public/images/product-img/<%=pro.image%>" alt="">
+                    <div class="des">
+                        <h5>
+                            <%= pro.title %>
+                        </h5>
+                        <span>
+                            By <%= pro.author %>
+                        </span>
+                        <!-- <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div> -->
+                        <h4>Rs <%= pro.price%>
+                        </h4>
+                    </div>
+                    <a href="/products/product-details/<%= pro._id %>"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+
+                <%})%>
+    </section>
+    </div>
+
+
+
+
+    <%- include('../layouts/user-footer-section.ejs') %>
+
+        <%- include('../layouts/user-footer.ejs') %>
